@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: order-services        # must match config-repo file name
+  profiles:
+    active: dev               # dev / test / prod
+  config:
+    import: optional:configserver:http://localhost:8888
+
+logging:
+  level:
+    root: INFO
+    com.yourpackage: DEBUG

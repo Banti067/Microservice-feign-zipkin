@@ -1,0 +1,15 @@
+server:
+  port: 8888   # Default port for Config Server
+
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Banti067/Centralized-Configuration-Server.git   # 🔁 Your config repo
+          default-label: main                                                     # branch name
+          clone-on-start: true                                                    # clone at startup
+          search-paths: microservice-feign-zipkin-config                           # folder inside repo (optional)

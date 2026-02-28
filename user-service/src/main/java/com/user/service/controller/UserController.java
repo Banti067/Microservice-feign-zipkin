@@ -33,9 +33,9 @@ public class UserController {
 	}
 	
 	@GetMapping("getuserbyid/{id}")
-	public ResponseEntity<Optional<UserEntity>> getUserByIdController(@PathVariable("id") int id){
+	public Optional<UserEntity> getUserByIdController(@PathVariable("id") int id){
 		
 		Optional<UserEntity> response = userService.getUserByID(id);
-		return ResponseEntity.ok(response);
+		return response;
 	}
 }

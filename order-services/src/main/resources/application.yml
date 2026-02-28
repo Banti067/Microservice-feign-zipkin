@@ -2,7 +2,7 @@ spring:
   application:
     name: order-services        # must match config-repo file name
   profiles:
-    active: dev               # dev / test / prod
+    active: dev                 # dev / test / prod
   config:
     import: optional:configserver:http://localhost:8888
 
@@ -10,3 +10,14 @@ logging:
   level:
     root: INFO
     com.order.service: DEBUG
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0          # dev = 100%, reduce in prod
+    export:
+      enabled: true             # ✅ REQUIRED in Spring Boot 4.x
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans

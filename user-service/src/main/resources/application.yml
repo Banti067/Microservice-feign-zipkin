@@ -1,8 +1,8 @@
 spring:
   application:
-    name: user-service        # must match config-repo file name
+    name: user-service
   profiles:
-    active: dev               # dev / test / prod
+    active: dev
   config:
     import: optional:configserver:http://localhost:8888
 
@@ -10,3 +10,14 @@ logging:
   level:
     root: INFO
     com.user.service: DEBUG
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # dev only (reduce in prod)
+    export:
+      enabled: true      # ✅ THIS enables tracing in Boot 4
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans

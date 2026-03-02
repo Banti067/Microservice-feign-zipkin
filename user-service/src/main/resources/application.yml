@@ -10,14 +10,6 @@ logging:
   level:
     root: INFO
     com.user.service: DEBUG
+    zipkin2.reporter: DEBUG
+    io.micrometer.tracing.export: DEBUG
 
-management:
-  tracing:
-    sampling:
-      probability: 1.0   # dev only (reduce in prod)
-    export:
-      enabled: true      # ✅ THIS enables tracing in Boot 4
-
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans

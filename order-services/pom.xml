@@ -75,17 +75,30 @@
 
 		<!-- ================= OBSERVABILITY ================= -->
 
-		<!-- Actuator (mandatory for tracing & metrics) -->
+		<!-- REQUIRED: Bridge Micrometer trace context to MDC (for logs) -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-tracing-bridge-brave</artifactId>
+		</dependency>
+
+		<!-- Micrometer Tracing (Brave) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-micrometer-tracing-brave</artifactId>
+		</dependency>
+
+		<!-- Zipkin sender -->
+		<dependency>
+			<groupId>io.zipkin.reporter2</groupId>
+			<artifactId>zipkin-sender-urlconnection</artifactId>
+		</dependency>
+
+		<!-- Actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!-- Micrometer Tracing (Zipkin-compatible, Brave) -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-micrometer-tracing-brave</artifactId>
-		</dependency>
 
 		<!-- ================= TEST ================= -->
 
